@@ -10,7 +10,7 @@ Pascal's Triangle is a mathematical construct where each number is the sum of th
 
 The code in this directory demonstrates how to generate Pascal's Triangle using various programming languages. Feel free to explore the implementations and use them in your projects.
 
-## Directory Structure
+## Directory Structure (Not Yet)
 
 - `python/`: Contains Python implementations of Pascal's Triangle.
 - `javascript/`: Contains JavaScript implementations of Pascal's Triangle.
