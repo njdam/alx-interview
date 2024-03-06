@@ -29,7 +29,7 @@ target = 9
 #### Output
 
 ```
-[2, 7]
+[2, 7]  # 2 + 7 = 9
 ```
 
 ## System Design
