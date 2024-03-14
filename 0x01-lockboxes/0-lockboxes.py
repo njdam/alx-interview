@@ -7,7 +7,7 @@ def canUnlockAll(boxes):
     Determines if all the boxes can be opened.
 
     Args:
-    - boxes: A list of lists representing the boxes and their corresponding keys.
+    - boxes: A list of lists representing the boxes.
 
     Returns:
     - True if all boxes can be opened, else False.
@@ -15,9 +15,9 @@ def canUnlockAll(boxes):
     canUnlockAll = False
     keys = {0: True}
 
-
     n_boxes = len(boxes)
-    while(True):
+
+    while (True):
 
         n_keys = len(keys)
 
@@ -29,7 +29,7 @@ def canUnlockAll(boxes):
                         keys[j] = True
                     boxes[i] = None
 
-        if not(len(keys) > n_keys):
+        if not (len(keys) > n_keys):
             break
 
     if n_keys == len(boxes):
