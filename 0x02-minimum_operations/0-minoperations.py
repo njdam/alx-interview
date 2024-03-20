@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ Interview Question: Minimum Operations """
 
 
@@ -14,7 +14,7 @@ def minOperations(n):
         int: The fewest number of operations needed.
         If n is impossible to achieve, return 0.
     """
-    if n < 2:
+    if not isinstance(n, int) or n < 2:
         return 0
 
     operations = 0
