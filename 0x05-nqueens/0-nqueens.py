@@ -2,7 +2,9 @@
 """
 N Queens Puzzle Solver
 """
+
 import sys
+
 
 def is_safe(board, row, col, n):
     """
@@ -22,6 +24,7 @@ def is_safe(board, row, col, n):
 
     return True
 
+
 def solve_nqueens(board, col, n):
     """
     Solve N Queens problem using backtracking
@@ -39,6 +42,7 @@ def solve_nqueens(board, col, n):
 
     return res
 
+
 def print_solution(board, n):
     """
     Print the solution to N Queens problem
@@ -50,7 +54,9 @@ def print_solution(board, n):
                 queens.append([i, j])
     print(queens)
 
+
 if __name__ == "__main__":
+
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
