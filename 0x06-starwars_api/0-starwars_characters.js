@@ -5,8 +5,8 @@ const request = require('request');
 const movieId = process.argv[2];
 const API_URL = 'https://swapi-api.hbtn.io/api';
 
-function getMovieCharacters(movieId) {
-    request(`${API_URL}/films/${movieId}/`, (err, _, body) => {
+function getMovieCharacters (movieId) {
+  request(`${API_URL}/films/${movieId}/`, (err, _, body) => {
     if (err) {
       console.log(err);
     }
@@ -27,8 +27,8 @@ function getMovieCharacters(movieId) {
   });
 }
 
-if (process.argv.length !== 3) {
-  console.log("Usage: ./0-starwars_characters.js <movie_id>");
+if (process.argv.length < 3) {
+  console.log('Usage: ./0-starwars_characters.js <movie_id>');
   process.exit(1);
 }
 
