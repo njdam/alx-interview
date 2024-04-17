@@ -3,27 +3,27 @@
 
 const request = require('request');
 const movieId = process.argv[2];
-const API_URL = 'https://swapi-api.hbtn.io/api/';
+const API_URL = 'https://swapi-api.hbtn.io/api';
 
 function getMovieCharacters(movieId) {
-  const url = `${API_URL}/films/${movieId}/`;
-  request(url, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      const filmData = JSON.parse(body);
-      const characters = filmData.characters;
-      characters.forEach(function(characterUrl) {
-        request(characterUrl, function(error, response, body) {
-          if (!error && response.statusCode == 200) {
-            const characterData = JSON.parse(body);
-            console.log(characterData.name);
-          } else {
-            console.log(`Failed to fetch character data for ${characterUrl}`);
-          }
-        });
-      });
-    } else {
-      console.log(`Failed to fetch film data for movie ID: ${movieId}`);
+    request(`${API_URL}/films/${movieId}/`, (err, _, body) => {
+    if (err) {
+      console.log(err);
     }
+    const charactersURL = JSON.parse(body).characters;
+    const charactersName = charactersURL.map(
+      url => new Promise((resolve, reject) => {
+        request(url, (promiseErr, __, charactersReqBody) => {
+          if (promiseErr) {
+            reject(promiseErr);
+          }
+          resolve(JSON.parse(charactersReqBody).name);
+        });
+      }));
+
+    Promise.all(charactersName)
+      .then(names => console.log(names.join('\n')))
+      .catch(allErr => console.log(allErr));
   });
 }
 
