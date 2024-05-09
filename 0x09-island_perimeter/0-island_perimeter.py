@@ -5,6 +5,10 @@ of the island described in grid.
 
 
 def island_perimeter(grid):
+    """ A function that computes the perimeter of an island with no lakes.
+    """
+    if type(grid) != list:
+        return 0
     perimeter = 0
     rows = len(grid)
     cols = len(grid[0])
